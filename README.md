@@ -22,3 +22,4 @@ settings.json
                             
 }
 ```
+important reference : https://sarcasm.github.io/notes/dev/compilation-database.html#text-editors-and-ides
