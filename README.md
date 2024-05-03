@@ -5,7 +5,7 @@ SDK container that can compile and debug
 
 settings.json
 
-'''
+```
 {
     "C_Cpp.intelliSenseEngine": "Disabled",
     //"clangd.path": "/usr/bin/clangd",
@@ -21,4 +21,4 @@ settings.json
                          "--compile-commands-dir=${workspaceFolder}"]
                             
 }
-'''
+```
