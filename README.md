@@ -1,7 +1,9 @@
 # Pi-Pico-SDK-Container
 SDK container that can compile and debug
 
-
+#Combination of multi repo
+#https://github.com/lukstep/raspberry-pi-pico-docker-sdk/blob/main/Dockerfile
+#https://github.com/shabaz123/rp2040tools/blob/main/pico-docker-steps.txt
 
 settings.json
 
