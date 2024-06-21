@@ -24,4 +24,37 @@ settings.json
                             
 }
 ```
+tasks.json
+```
+{
+         "label": "mybuild",
+         "type": "shell",
+         "command": "mkdir -p ${workspaceFolder}/output; make ABCD 2>&1 | tee ${workspaceFolder}/output/build_log",
+         "options": {
+            "cwd": "${workspaceFolder}/path1"
+         },
+         "problemMatcher": {
+            "owner": "cpp",
+            "fileLocation": [
+               "relative",
+               "${workspaceFolder}/path2"
+            ],
+            "pattern": {
+               "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error|fatal error):\\s+(.*)$",
+               "file": 1,
+               "line": 2,
+               "column": 3,
+               "severity": 4,
+               "message": 5
+            }
+         },
+         "presentation": {
+            "panel": "dedicated",
+            "clear": true
+         },
+      },
+                            
+}
+```
+
 important reference : https://sarcasm.github.io/notes/dev/compilation-database.html#text-editors-and-ides
