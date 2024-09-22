@@ -1,3 +1,3 @@
-docker run -d -it --name pico-sdk --mount type=bind,source=${PWD},target=/home/dev pico-sdk:latest
+docker run -d -it --name pico-sdk-cd --mount type=bind,source=${PWD},target=/home/dev pico-sdk:latest
 
-docker exec -it pico-sdk /bin/sh
+docker exec -it pico-sdk-cd /bin/bash
