@@ -10,7 +10,7 @@
 FROM ubuntu:latest
 
 # Set default shell during Docker image build to bash
-#SHELL ["/bin/bash", "-c"]
+SHELL ["/bin/bash", "-c"]
 
 # Set non-interactive frontend for apt-get to skip any user confirmations
 ENV DEBIAN_FRONTEND=noninteractive
@@ -22,6 +22,7 @@ RUN apt-get -y update && \
             git \
             python3 \
             python3-pip \
+	    python-is-python3 \
             cmake \
             build-essential \
             libusb-dev \
@@ -39,7 +40,8 @@ RUN apt-get -y update && \
             libusb-1.0-0-dev \
             libhidapi-dev \
             gcc-arm-none-eabi \
-            libnewlib-arm-none-eabi
+            libnewlib-arm-none-eabi \
+	    bash-completion 
                         
 WORKDIR /apps
 
