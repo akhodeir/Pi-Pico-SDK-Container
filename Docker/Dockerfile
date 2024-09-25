@@ -50,9 +50,10 @@ WORKDIR /apps
 ARG SDK_PATH=/apps/pico_sdk
 RUN git clone --depth 1 https://github.com/raspberrypi/pico-sdk $SDK_PATH && \
     cd $SDK_PATH && \
-    git submodule update --init
+    git submodule update --init 
 
 ENV PICO_SDK_PATH=$SDK_PATH
+RUN echo 'export PICO_SDK_PATH=/apps/pico_sdk' >> ~/.bashrc
 
 # Picotool installation
 RUN cd /apps && \
@@ -69,5 +70,13 @@ RUN cd /apps && \
     git clone --depth=1 https://github.com/wtarreau/bootterm.git  && \
     cd bootterm && \
     make -j$(nproc) install 
+
+# Raspberry Pi Examples
+RUN cd /apps && \
+    git clone --depth=1 https://github.com/raspberrypi/pico-examples.git && \
+    cd pico-examples  && \
+    mkdir build && \
+    cd build && \
+    cmake .. -DPICO_PLATFORM=rp2040
 
 RUN cd /usr/bin && ln -s /usr/bin/objdump objdump-multiarch && ln -s /usr/bin/nm nm-multiarch 
