@@ -26,6 +26,7 @@ RUN apt-get -y update && \
     cmake \
     nano \
     vim \
+    7zip \
     build-essential \
     libusb-dev \
     wget \
