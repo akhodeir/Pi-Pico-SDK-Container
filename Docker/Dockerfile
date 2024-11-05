@@ -24,6 +24,8 @@ RUN apt-get -y update && \
     python3-pip \
     python-is-python3 \
     cmake \
+    nano \
+    vim \
     build-essential \
     libusb-dev \
     wget \
@@ -47,13 +49,13 @@ RUN apt-get -y update && \
 WORKDIR /apps
 
 # Raspberry Pi Pico SDK
-ARG SDK_PATH=/apps/pico_sdk
+ARG SDK_PATH=/apps/pico-sdk
 RUN git clone --depth 1 https://github.com/raspberrypi/pico-sdk $SDK_PATH && \
     cd $SDK_PATH && \
     git submodule update --init 
 
 ENV PICO_SDK_PATH=$SDK_PATH
-RUN echo 'export PICO_SDK_PATH=/apps/pico_sdk' >> ~/.bashrc
+RUN echo 'export PICO_SDK_PATH=/apps/pico-sdk' >> ~/.bashrc
 
 # Picotool installation
 RUN cd /apps && \
